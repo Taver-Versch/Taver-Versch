@@ -1,16 +1,13 @@
-## Hi there 👋
+## Hi
 
-<!--
-**Taver-Versch/Taver-Versch** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I am Taver, a Software Engineering student based in Nebraska, USA.
 
-Here are some ideas to get you started:
+I am most interested in Game Development | Cybersecurity | Networking. 
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Experience in *Roblox Studio*, *Unreal Engine*, *Unity*, *Blender*.
+
+---
+
+About me
+- I have a cat 🐈
+
