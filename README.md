@@ -1,13 +1,12 @@
-## Hi
+# Taver # 
 
-I am Taver, a Software Engineering student based in Nebraska, USA.
+### Planning to get CCNA, Security+, AWS Cloud Prac., Terraform Associate by Summer 2027 ###
 
-I am most interested in Game Development | Cybersecurity | Networking. 
+I am Taver, a Software Engineering student based in Nebrsaka, USA. I am a Co-Founder of an Indie Game Studio (Amtav Games),
+currently working on our first game. 
+
+Interested in Game Development | Security | Networking | Automation.
 
 Experience in *Roblox Studio*, *Unreal Engine*, *Unity*, *Blender*.
 
----
-
-About me
-- I have a cat 🐈
-
+ALL of my projects and links will be listed on https://amtavgames.com/taver
