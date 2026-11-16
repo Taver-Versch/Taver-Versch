@@ -37,12 +37,13 @@ def pct(t):
     return f"{100 * t / CYCLE:.2f}%"
 
 
-def build(theme):
+def build(theme, extra=None, label=""):
+    """extra: optional (command, fn) typed after LINES; fn(theme, colors, prompt_y, reveal_time) -> (svg, css, last_y)."""
     c = THEMES[theme]
     css, body = [], []
     y = CARD_Y + BAR_H + 30
     t = 0.6
-    for i, (cmd, out) in enumerate(LINES):
+    for i, (cmd, out) in enumerate(LINES + [extra] * bool(extra)):
         # command line: the prompt shows right away, the command types out behind a sliding cover
         px = CARD_X + PAD_X
         cx = px + len(PROMPT) * CW
@@ -58,8 +59,13 @@ def build(theme):
                    f'{pct(t + n * TYPE)},97%{{transform:translateX({n * CW + 2}px)}}100%{{transform:translateX(0)}}}}')
         t += n * TYPE + PAUSE * 0.6
         y += LH
-        weight = ' font-weight="700"' if i == 0 else ""
-        body.append(f'<text class="o{i}" x="{px}" y="{y}"{weight}>{out.replace("&", "&amp;")}</text>')
+        if callable(out):  # a whole block (the stats) instead of one line of output
+            svg, more_css, y = out(theme, c, y - LH, t)
+            body.append(f'<g class="o{i}">{svg}</g>')
+            css.append(more_css)
+        else:
+            weight = ' font-weight="700"' if i == 0 else ""
+            body.append(f'<text class="o{i}" x="{px}" y="{y}"{weight}>{out.replace("&", "&amp;")}</text>')
         css.append(f'.o{i}{{animation:o{i} {CYCLE}s infinite}}'
                    f'@keyframes o{i}{{0%,{pct(t - 0.01)}{{opacity:0}}{pct(t)},97%{{opacity:1}}100%{{opacity:0}}}}')
         t += PAUSE
@@ -67,7 +73,7 @@ def build(theme):
     # last prompt with a blinking caret
     px = CARD_X + PAD_X
     body.append(f'<text class="o9" x="{px}" y="{y}" fill="{c["prompt"]}">{PROMPT}</text>'
-                f'<rect class="caret" x="{px + len(PROMPT) * CW}" y="{y - 14}" width="9" height="17" fill="{c["text"]}"/>')
+                f'<rect class="caret" x="{px + len(PROMPT) * CW}" y="{y - 14}" width="9" height="17" fill="{c["prompt"]}"/>')
     css.append(f'.o9{{animation:o9 {CYCLE}s infinite}}@keyframes o9{{0%,{pct(t - 0.01)}{{opacity:0}}{pct(t)},97%{{opacity:1}}100%{{opacity:0}}}}'
                f'.caret{{animation:blink 1s steps(1) infinite}}@keyframes blink{{50%{{opacity:0}}}}')
     card_h = y + 22 - CARD_Y
@@ -75,9 +81,9 @@ def build(theme):
     h = CARD_Y + card_h + 14
     fonts = "".join(f'@font-face{{font-family:JBM;font-weight:{wt};src:url(data:font/woff2;base64,{b64(FONTS / f"jetbrains-mono-latin-{wt}-normal.woff2")}) format("woff2")}}'
                     for wt in (400, 700))
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="Terminal: whoami, Taver Versch. Software Engineering at UNL, IT Network Infrastructure at UNL ITS.">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="Terminal: whoami, Taver Versch. Software Engineering at UNL, IT Network Infrastructure at UNL ITS. {label}">
 <style>{fonts}
-text{{font-family:JBM,ui-monospace,Menlo,Consolas,monospace;font-size:{FS}px;fill:{c["text"]};white-space:pre}}
+svg{{fill:{c["text"]}}}text{{font-family:JBM,ui-monospace,Menlo,Consolas,monospace;font-size:{FS}px;white-space:pre}}
 {"".join(css)}
 @media (prefers-reduced-motion:reduce){{*{{animation:none!important}}}}
 </style>

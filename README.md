@@ -1,7 +1,7 @@
 <a href="https://taver-versch.github.io">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-    <img alt="Terminal typing whoami: Taver Versch, Software Engineering at UNL, IT Network Infrastructure at UNL ITS" src="assets/header-light.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Taver-Versch/Taver-Versch/output/profile-dark.svg">
+    <img alt="Terminal typing whoami: Taver Versch, Software Engineering at UNL, IT Network Infrastructure at UNL ITS, then my GitHub stats, top languages and contribution graph" src="https://raw.githubusercontent.com/Taver-Versch/Taver-Versch/output/profile-light.svg" width="100%">
   </picture>
 </a>
 
@@ -32,8 +32,3 @@ More on [my site](https://taver-versch.github.io/projects).
 **Languages** Python · C# · Java · JavaScript · TypeScript · SQL<br>
 **Infrastructure** Proxmox · Docker · Linux · Pi-hole · WireGuard · Tailscale · Wazuh · Wireshark<br>
 **Development** Django · Flask · Unity · Git · GitHub Actions
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Taver-Versch/Taver-Versch/output/github-snake-dark.svg">
-  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/Taver-Versch/Taver-Versch/output/github-snake.svg" width="100%">
-</picture>
