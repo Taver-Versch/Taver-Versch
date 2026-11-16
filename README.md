@@ -9,4 +9,4 @@ Interested in Game Development | Security | Networking | Automation.
 
 Experience in *Roblox Studio*, *Unreal Engine*, *Unity*, *Blender*.
 
-ALL of my projects and links will be listed on https://amtavgames.com/taver
+ALL of my projects and links will be listed on [https://amtavgames.com/taver](https://taver-versch.github.io/)
