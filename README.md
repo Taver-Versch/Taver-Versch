@@ -12,8 +12,8 @@ I'm a Software Engineering student at UNL with a networking focus, and I work wi
 ### Right now
 - Studying for the CCNA (January 2027), then Security+
 - Product Manager on my senior design team, building a multi-user WebXR protein lab with a voice assistant
-- Running a 2-node Proxmox homelab with my own DNS, VPN, and a Wazuh security lab
-- Shipping Break.In with Amtav Games (December 2026)
+- Running a 3-node Proxmox homelab with my own DNS, VPN, and a Wazuh security lab
+- Shipping Break.In with Amtav Games (Goal: December 2026)
 - Looking for summer 2027 internships
 
 ### Projects
